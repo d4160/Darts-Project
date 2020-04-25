@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!162 &1
+EditorUserSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 4
+  m_ConfigSettings:
+    Advanced Settings:
+      value: 183b144645154b6805011b0314355e1e15121c1d233a2a343e6b4773e4e1382be78d2b
+      flags: 0
+    lightmappingDeviceAndPlatform:
+      value: 53
+      flags: 0
+    unity-properties__ui-persistent-state:
+      value: 183b144645154b7d0202082d05376c0417031d6876681d5a6d695d73a2a07478f98d76a9a77a7f7c7942af7c447e4314f7134b51b6465b5e495bac5f43ac454b5daf58855a885f5c8b595c8e8d5d93d5d4dac1ef9ab1a7dedfd3b3f79eb0aeb8b5b1e5bbeab5b0aaeaefbef1ef828784daa0f7848c868987fa929193fe9390f8dccfc78c99ca89828dddf7d9fbc5f2f3dfcbe4d6d5e5d9ebdddedcf220f3ed56676b7dbffee2f694afac68e93230c4c83237c6396ac6e5ccc9d23fccd4ced19428dad9db06dbdadb21de0dde210d4b6678173215270936380b3e38070438753f4f66643a683b37686e6f70020402484949543009607858422f3a24417f121714111a4749103c19174a6261634e633949696655666957686b695d705d70cb322da16b74abb46cbd6bbabbbc51a552739ab6b7b84a4c4846504d49bd5380f61514d7c25493870e0d091c888f5ca45ea15f92aaf4a7bcabaaabb1ae9daeb1c49ab3b1e5b8e5bae8bfbcebb9bcec86f8a881eff6f99be19f97efebefd7868c9ca4989591c59bcac89ce0cacf9ed3b9a3abb1a4e8cde4b8b4bca2f0f2f1f3def3f2f3f9ab29dcf927f8fbf92dc02d991ac7c433c1c43635c539cb3d3e3eb9458acd1a060a19c3c8c8c135ccc819361e3a242812172619172a2f2c29321d5a7562646a6020396f346e7f11013e6d3e016f00035c7922750a780f0c7b090c25570d41134546441a481b17484e4d3b273d62046868704c7f4a4f79614f4b7cad75727774717aa7747c767977aa403702e21607415346e1141cf2624b49bd50bd528057098f7b54868555895b8d8ed78890a35f90969798aaaca8a6b0afc2d8eae0fab4b5f1f1a1f1fea3aeabab8ec5bc84be81bff28a898bf68b8a89e7cfb1dbd4fd8a93d784d496dfe29f9ccb999ccecd9d8cc9d5d6d4eaa5e7cdd8dedf20f084b1a9b1bbb071b265668f946b7bbb3335c2bceec1ca37c4b1ec94
+      flags: 0
+    vcSharedLogLevel:
+      value: 0d5e400f0650
+      flags: 0
+  m_VCAutomaticAdd: 1
+  m_VCDebugCom: 0
+  m_VCDebugCmd: 0
+  m_VCDebugOut: 0
+  m_SemanticMergeMode: 2
+  m_VCShowFailedCheckout: 1
+  m_VCOverwriteFailedCheckoutAssets: 1
+  m_VCOverlayIcons: 1
+  m_VCAllowAsyncUpdate: 0
