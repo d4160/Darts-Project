@@ -9,6 +9,19 @@ using UnityExtensions;
 
 public class SingleplayerModeManager : GameModeManagerBase
 {
+    [SerializeField] private bool _instanceDart;
+    [SerializeField] private GameObject _dartPrefab;
+
+    void Start()
+    {
+        Invoke("Instantiate", 1f);
+    }
+
+    void Instantiate()
+    {
+        Instantiate(_dartPrefab);
+    }
+
     public override void Despawn(GameObject instance, int entity, int poolIndex = 0, float delay = 0f)
     {
         Despawn(instance, (ArchetypeEnum)entity, poolIndex, delay);

@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1976635405}
   m_Layer: 0
   m_Name: Dart
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 7232411484494897454}
   m_LocalRotation: {x: -0.0000035989394, y: 0.9125668, z: 0.000008031423, w: 0.40892783}
   m_LocalPosition: {x: 1.3397942, y: -0.49528342, z: 3.0677586}
-  m_LocalScale: {x: 0.4621911, y: 0.46219093, z: 0.46219105}
+  m_LocalScale: {x: 0.46219125, y: 0.46219093, z: 0.4621912}
   m_Children:
   - {fileID: 4278737433573636647}
   m_Father: {fileID: 0}
@@ -92,7 +92,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &1976635405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f2f009d533ad4b82797e2745ce8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _throwSpeed: 35
+  _throwSpeed: 15
 --- !u!1 &8679310422316424358
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +163,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -190,7 +189,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &9022138843050716204
 BoxCollider:
   m_ObjectHideFlags: 0

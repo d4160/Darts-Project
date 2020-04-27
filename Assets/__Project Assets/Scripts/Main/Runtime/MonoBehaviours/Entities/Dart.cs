@@ -59,7 +59,7 @@ public class Dart : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100f))
             {
-                Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.name);
                 if (hit.transform == transform)
                 {
                     _holding = true;
@@ -134,7 +134,7 @@ public class Dart : MonoBehaviour
         if (_rigidbody)
         {
             _rigidbody.isKinematic = false;
-            _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             _rigidbody.useGravity = false;
             _rigidbody.velocity = Vector3.zero;
             _rigidbody.angularVelocity = Vector3.zero;

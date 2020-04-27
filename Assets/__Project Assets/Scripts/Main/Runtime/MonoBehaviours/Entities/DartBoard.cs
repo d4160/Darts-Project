@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DartBoard : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (!other.attachedRigidbody) return;
+        Debug.Log($"Collide with: {other.gameObject.name}");
+
+        if (!other.collider.attachedRigidbody) return;
         
-        other.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-        other.attachedRigidbody.isKinematic = true;
+        other.collider.attachedRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        other.collider.attachedRigidbody.isKinematic = true;
     }
 }
