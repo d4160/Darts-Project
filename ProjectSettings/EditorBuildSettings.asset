@@ -22,8 +22,9 @@ EditorBuildSettings:
     path: Assets/__Project Assets/Scenes/Game Modes/Multiplayer Mode/Plays/Multiplayer
       Mode - MainPlayScene.unity
     guid: 14125abe4b75e664cb71e2319a7a34ac
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/Unity URP/Scenes/SampleScene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: f895e645e98231e4da25ca85aa98a8b0, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: f895e645e98231e4da25ca85aa98a8b0,
+      type: 2}
