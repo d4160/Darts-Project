@@ -18,11 +18,22 @@ namespace GameFramework
 	/// </summary>
 	public class PUN2Launcher : MonoBehaviourPunCallbacks, INetworkingLauncher
     {
-        [SerializeField] protected UltEvent _onConnectedToMaster;
+		[d4160.Core.Attributes.Dropdown(ValuesProperty = "GameModeCategoriesNames")]
+		[SerializeField] protected int _gameModeLevelToLoadWhenJoinedRoom;
+		[SerializeField] protected bool _useLoadingScreen;
+
+		[Header("EVENTS")]
+		[SerializeField] protected UltEvent _onConnectedToMaster;
         [SerializeField] protected UltEvent _onJoinedRoom;
 		[SerializeField] protected UltEvent _onDisconnected;
+		
+#if UNITY_EDITOR
+		#region Other Editor Members
+		protected virtual string[] GameModeCategoriesNames => (GameFrameworkSettings.GameDatabase[1] as IArchetypeNames).ArchetypeNames;
+		#endregion
+#endif
 
-#region Protected Fields
+		#region Protected Fields
 		protected byte m_maxPlayersPerRoom;
 		/// <summary>
 		/// Keep track of the current process. Since connection is asynchronous and is based on several callbacks from Photon,
@@ -114,7 +125,7 @@ namespace GameFramework
 			{
 				LogFeedback("OnConnectedToMaster: Next -> try to Join Random Room", 1.5f);
 				// #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
-                PhotonNetwork.JoinOrCreateRoom("Global", new RoomOptions() {MaxPlayers = 20}, null);
+                PhotonNetwork.JoinOrCreateRoom("Global", new RoomOptions() {MaxPlayers = m_maxPlayersPerRoom }, null);
                 
                 m_isConnecting = false;
 			}
@@ -182,12 +193,23 @@ namespace GameFramework
 			if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
 			{
 				Debug.Log("Loading scene for 1 Player");
+
 				// #Critical
 				GameManager.Instance.UnloadAllStartedLevels(
 					() =>
                     {
-                        Debug.Log(($"After UnloadAllStartedLevels"));
-						GameManager.Instance.LoadLevel(LevelType.GameMode, 1);
+						if (!_useLoadingScreen)
+						{
+							GameManager.Instance.LoadLevel(LevelType.GameMode, _gameModeLevelToLoadWhenJoinedRoom);
+						}
+						else
+						{
+							var loadingLauncher = GameManager.Instance.GetLevelLauncher<DefaultLoadingScreenLauncher>(0);
+							loadingLauncher.SetLevelToLoad(LevelType.GameMode, _gameModeLevelToLoadWhenJoinedRoom);
+
+							// The LoadingScreen level is the first
+							GameManager.Instance.LoadLevel(LevelType.General, 0);
+						}
                     });
 			}
             else

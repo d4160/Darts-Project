@@ -46,6 +46,7 @@
                             
                         }, () =>
                         {
+                            onFailed?.Invoke();
                             NotificationPrefabsManagerBase.Instance.InstancedMain?.Notify("That name is not available.", 1.5f);
                         });
                     },

@@ -12,16 +12,18 @@ using Cinemachine;
 
 public class Slingshot : MonoBehaviour
 {
+    [Header("REFERENCES")]
     [SerializeField] private GameObjectSelector _selector;
     [SerializeField] private MovementMotor _movementMotor;
     [SerializeField] private Transform _anchor;
-    [SerializeField] private float _maxLaunchVelocity = 5f;
-    [SerializeField] private float _timeToSpawnDart = 3f;
     [SerializeField] private CinemachineVirtualCamera _main;
     [SerializeField] private CinemachineVirtualCamera _dartFollow;
 
+    [Header("GAME PLAY")]
+    [SerializeField] private float _maxLaunchVelocity = 5f;
+    [SerializeField] private float _timeToSpawnDart = 3f;
+
     private Rigidbody _rb;
-    [SerializeField] private bool _rotate;
     private Vector3 _dartFollowCamStartPos;
     private Quaternion _dartFollowCamStartRot;
 
@@ -77,8 +79,6 @@ public class Slingshot : MonoBehaviour
 
         _movementMotor.TargetToMove = null;
 
-        _rotate = false;
-
         Invoke("SetPriority", _timeToSpawnDart / 2.77f);
 
         Invoke("InstantiateDart", _timeToSpawnDart);
@@ -106,11 +106,10 @@ public class Slingshot : MonoBehaviour
 
         _movementMotor.Move();
 
-        if (_rotate)
-            RotateAsSpeed();
+        LookAtAnchor();
     }
 
-    void RotateAsSpeed()
+    void LookAtAnchor()
     {
         if(!_anchor || !_movementMotor.TargetToMove)
             return;

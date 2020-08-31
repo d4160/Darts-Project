@@ -2,6 +2,7 @@
 
 public class SlingshotMotor : MovementMotor
 {
+    [Header("GAME PLAY")]
     [SerializeField] private float _nearClipPlaneMultiplier = 5.9f;
     [SerializeField] private float _forwardSpeed = 0.5f;
     [SerializeField] private float _distanceLimit = 0.25f;

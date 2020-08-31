@@ -9,34 +9,38 @@ using UnityExtensions;
 
 public class SingleplayerModeManager : GameModeManagerBase
 {
-    [SerializeField] private bool _instanceDart;
+    [SerializeField] private bool _instanceDartAtStart;
+
+    [Header("REFERENCES")]
+    [SerializeField] private HUDCanvas _hud;
     [SerializeField] private SpawnProvider _provider;
     [SerializeField] private Transform _dartPosition;
-    [SerializeField] private int _darts;
-    [SerializeField] private HUDCanvas _hud;
 
-    private int _used;
+    [Header("GAME PLAY")]
+    [SerializeField] private int _darts;
+    
+    private int _usedNumber;
     private int _score;
 
     void Start()
     {
-        if (_instanceDart)
+        if (_instanceDartAtStart)
             Invoke("Instantiate", 1f);
     }
 
-    public void AddScore(int val)
+    public void AddScore(int points)
     {
-        _score += val;
+        _score += points;
 
         _hud.UpdateStat(0, _score);
-        _hud.UpdateStat(1, val);
+        _hud.UpdateStat(1, points);
     }
 
     public GameObject Instantiate()
     {
-        _used++;
+        _usedNumber++;
 
-        if (_darts < _used)
+        if (_darts < _usedNumber)
             return null;
         
         _provider.OverrideSpawnPosition = _dartPosition.position;
@@ -46,6 +50,7 @@ public class SingleplayerModeManager : GameModeManagerBase
         return _provider.LastGameObject;
     }
 
+    #region Spawn Members
     public override void Despawn(GameObject instance, int entity, int poolIndex = 0, float delay = 0f)
     {
         Despawn(instance, (ArchetypeEnum)entity, poolIndex, delay);
@@ -58,6 +63,12 @@ public class SingleplayerModeManager : GameModeManagerBase
 
     public void Despawn(GameObject instance, ArchetypeEnum entity, int poolIndex = 0, float delay = 0f)
     {
+        switch (entity)
+        {
+            case ArchetypeEnum.Player:
+                _provider.Despawn(instance, poolIndex, delay);
+                break;
+        }
     }
 
     public void Despawn(GameObject instance, ArchetypeEnum entity, int category, int poolIndex = 0, float delay = 0f)
@@ -65,6 +76,7 @@ public class SingleplayerModeManager : GameModeManagerBase
         switch (entity)
         {
             case ArchetypeEnum.Player:
+                _provider.Despawn(instance, poolIndex, delay);
                 break;
         }
     }
@@ -86,4 +98,5 @@ public class SingleplayerModeManager : GameModeManagerBase
                 break;
         }
     }
+    #endregion
 }

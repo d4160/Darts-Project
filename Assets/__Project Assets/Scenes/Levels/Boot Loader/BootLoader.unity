@@ -7326,7 +7326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8af1b6e1aaa2944eb2eb192c9e07d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_startLevelAtStart: 1
+  m_startLevelAtStart: 0
   m_levelTypeToStart: 1
   m_generalLevelToStart: 0
   m_gameModeLevelToStart: 0

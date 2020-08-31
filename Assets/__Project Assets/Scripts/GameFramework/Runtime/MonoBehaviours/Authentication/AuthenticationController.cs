@@ -80,7 +80,15 @@ namespace GameFramework
             {
                 onCompleted?.Invoke();
                 _onAllLoginComplete?.Invoke();
-            }, onFailed);
+
+                _loginInput.interactable = true;
+                _loginButton.interactable = true;
+            }, () => {
+                _loginInput.interactable = true;
+                _loginButton.interactable = true;
+
+                onFailed?.Invoke();
+            });
         }
 
         public void LogoutAll()

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: CM vcam2
-    m_To: CM vcam3
+  - m_From: CM vcam Board
+    m_To: CM vcam Dart
     m_Blend:
       m_Style: 1
       m_Time: 0.77
@@ -24,8 +24,8 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: CM vcam3
-    m_To: CM vcam2
+  - m_From: CM vcam Dart
+    m_To: CM vcam Board
     m_Blend:
       m_Style: 0
       m_Time: 2

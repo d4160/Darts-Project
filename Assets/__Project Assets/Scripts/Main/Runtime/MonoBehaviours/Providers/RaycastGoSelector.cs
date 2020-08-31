@@ -5,14 +5,7 @@ public class RaycastGoSelector : GameObjectSelector
     [SerializeField] protected LayerMask _mask;
     [SerializeField] protected string _tag;
 
-    public override void CheckSelection()
-    {
-        CheckIn();
-
-        CheckOut();
-    }
-
-    private void CheckIn()
+    protected override void CheckIn()
     {
         bool pointerDown = false;
 
@@ -56,7 +49,7 @@ public class RaycastGoSelector : GameObjectSelector
         }
     }
 
-    private void CheckOut()
+    protected  override void CheckOut()
     {
         bool pointerUp = false;
 
